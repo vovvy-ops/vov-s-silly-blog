@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>vov's silly blog</title>
+<style>
+  /* Reset */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+  }
+  html, body {
+    height: 100%;
+    font-family: 'Iosevka Nerd Font', monospace;
+    background-color: var(--bg);
+    color: var(--text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  :root {
+    --bg: #0a0a0a;
+    --accent: #ff0000;
+    --text: #ff0000;
+    --post-bg: rgba(0, 0, 0, 0.6);
+  }
+  [data-theme="light"] {
+    --bg: #ffffff;
+    --accent: #ff0066;
+    --text: #111111;
+    --post-bg: #f0f0f0;
+  }
+  [data-theme="matrix"] {
+    --bg: #000000;
+    --accent: #00ff00;
+    --text: #00ff00;
+    --post-bg: rgba(0, 50, 0, 0.8);
+  }
+  [data-theme="capuccin"] {
+    --bg: #1e1e2e;
+    --accent: #f2cdcd;
+    --text: #f5e0dc;
+    --post-bg: #313244cc;
+  }
+  [data-theme="gruvbox"] {
+    --bg: #282828;
+    --accent: #fb4934;
+    --text: #ebdbb2;
+    --post-bg: #3c3836cc;
+  }
+  [data-theme="solarized-dark"] {
+    --bg: #002b36;
+    --accent: #b58900;
+    --text: #839496;
+    --post-bg: #073642cc;
+  }
+  [data-theme="solarized-light"] {
+    --bg: #fdf6e3;
+    --accent: #657b83;
+    --text: #586e75;
+    --post-bg: #eee8d5cc;
+  }
+  [data-theme="debian"] {
+    --bg: #1a0000;
+    --accent: #d70a53;
+    --text: #f0e6e6;
+    --post-bg: #300000cc;
+  }
+  [data-theme="arch"] {
+    --bg: #0b0e12;
+    --accent: #1793d1;
+    --text: #a6c8ff;
+    --post-bg: #122137cc;
+  }
+
+  body {
+    padding: 2rem;
+    background: var(--bg);
+  }
+  header {
+    font-size: 2.5rem;
+    color: var(--accent);
+    text-align: center;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 8px var(--accent);
+  }
+  .theme-switcher {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .theme-switcher select {
+    font-family: 'Iosevka Nerd Font', monospace;
+    font-size: 1rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    border: 1px solid var(--accent);
+    background: var(--post-bg);
+    color: var(--text);
+    cursor: pointer;
+  }
+  #search-input {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 2rem auto;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid var(--accent);
+    background: var(--post-bg);
+    color: var(--text);
+    font-family: 'Iosevka Nerd Font', monospace;
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .post {
+    background: var(--post-bg);
+    color: var(--text);
+    border: 1px solid var(--accent);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 12px var(--accent);
+  }
+  .post h2 {
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  .post img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 1rem 0;
+  }
+  .post-body {
+    display: none;
+    margin-top: 1rem;
+    line-height: 1.5;
+  }
+  .expand-btn {
+    margin-top: 1rem;
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: box-shadow 0.3s ease;
+  }
+  .expand-btn:hover {
+    box-shadow: 0 0 15px var(--accent);
+  }
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+  .no-posts {
+    text-align: center;
+    color: var(--accent);
+    font-style: italic;
+  }
+</style>
+</head>
+<body data-theme="dark">
+
+<header>vov's silly blog</header>
+
+<div class="theme-switcher">
+  <label for="theme-select">Select Theme:</label>
+  <select id="theme-select" aria-label="Select blog theme">
+    <option value="dark">Dark Red</option>
+    <option value="light">Light</option>
+    <option value="matrix">Matrix</option>
+    <option value="capuccin">Capuccin</option>
+    <option value="gruvbox">Gruvbox</option>
+    <option value="solarized-dark">Solarized Dark</option>
+    <option value="solarized-light">Solarized Light</option>
+    <option value="debian">Debian</option>
+    <option value="arch">Arch</option>
+  </select>
+</div>
+
+<input
+  type="search"
+  id="search-input"
+  placeholder="Search posts by title or tags..."
+  aria-label="Search posts by title or tags"
+/>
+
+<div class="container" id="posts-container">
+  <!-- Paste your exported post HTML here -->
+    
+    <div class="post" data-tags="kill eugene glock15 model 2">
+  <h2>I WILL KILL YOU EUGENE</h2>
+  <div class="post-body" style="display:none;">
+    <pre><font face="monospace">what the sigma,eugene</font></pre><ul><li>what the sigma once more,eugene</li></ul><div><font size="6" color="#28f000">WHAT THE SIGMA ONE MORE ONCE MORE EUGENE</font></div><div><font size="6" color="#28f000">what one<span style="background-color: rgb(31, 99, 189);">earth eugene</span></font></div><div><i>as</i></div><div><b style="">as</b></div><div><u><br></u></div><div><u>as</u></div><div><a href="google.com">google.com</a><br></div>
+  </div>
+  <button class="expand-btn" onclick="togglePostBody(this)">Expand</button>
+</div>
+    
+
+  </div>
+
+
+<script>
+  const themeSelect = document.getElementById('theme-select');
+  const body = document.body;
+  const searchInput = document.getElementById('search-input');
+  const postsContainer = document.getElementById('posts-container');
+
+  themeSelect.addEventListener('change', e => {
+    body.setAttribute('data-theme', e.target.value);
+  });
+
+  function togglePostBody(button) {
+    const postBody = button.previousElementSibling;
+    if (postBody.style.display === 'block') {
+      postBody.style.display = 'none';
+      button.textContent = 'Expand';
+    } else {
+      postBody.style.display = 'block';
+      button.textContent = 'Collapse';
+    }
+  }
+
+  function filterPosts() {
+    const query = searchInput.value.toLowerCase();
+    const posts = postsContainer.querySelectorAll('.post');
+    let anyVisible = false;
+
+    posts.forEach(post => {
+      const title = post.querySelector('h2').textContent.toLowerCase();
+      const tags = (post.getAttribute('data-tags') || '').toLowerCase();
+      if (title.includes(query) || tags.includes(query)) {
+        post.style.display = '';
+        anyVisible = true;
+      } else {
+        post.style.display = 'none';
+      }
+    });
+
+    if (!anyVisible) {
+      if (!document.querySelector('.no-posts')) {
+        const noPosts = document.createElement('div');
+        noPosts.className = 'no-posts';
+        noPosts.textContent = 'No posts found.';
+        postsContainer.appendChild(noPosts);
+      }
+    } else {
+      const noPosts = document.querySelector('.no-posts');
+      if (noPosts) noPosts.remove();
+    }
+  }
+
+  searchInput.addEventListener('input', filterPosts);
+</script>
+
+</body>
+</html>
